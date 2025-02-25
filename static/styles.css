@@ -1,0 +1,263 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600&display=swap');
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lexend', sans-serif;
+}
+
+/* Body Styling */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: radial-gradient(circle, #0d1117, #030409);
+    color: #e6edf3;
+    padding: 30px 10px;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Header Section */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #58a6ff, #bc6ff1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Ensure emoji retains its original color */
+.emoji {
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: initial; /* Reset emoji color */
+}
+
+p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Card (Glassmorphism) */
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.4s, box-shadow 0.4s;
+    animation: fadeUp 0.7s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+    font-size: 1rem;
+    color: #e6edf3;
+    background: rgba(255, 255, 255, 0.12);
+    transition: box-shadow 0.4s, transform 0.3s;
+}
+
+/* Input Focus Effect */
+input:focus {
+    box-shadow: 0 0 12px #58a6ff;
+    transform: scale(1.02);
+}
+
+/* Button Styling */
+button {
+    background: linear-gradient(135deg, #58a6ff, #bc6ff1);
+    color: white;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 14px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.4s;
+}
+
+/* Button Hover and Focus Effects */
+button:hover {
+    transform: scale(1);
+    box-shadow: 0 8px 20px rgba(88, 166, 255, 0.245);
+}
+
+button:focus {
+    outline: 3px solid #58a6ff;
+    outline-offset: 4px;
+}
+
+/* Success & Error Messages */
+.result {
+    padding: 18px;
+    border-radius: 14px;
+    margin-top: 24px;
+    word-wrap: break-word; /* Ensure long text wraps properly */
+}
+
+.success {
+    background: rgba(24, 109, 59, 0.35);
+    color: #58a6ff;
+}
+
+.error {
+    background: rgba(109, 24, 24, 0.35);
+    color: #bc6ff1;
+}
+
+/* Ensure emoji in result stays original */
+.result .emoji {
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: initial; 
+}
+
+/* Divider Animation */
+.divider {
+    font-size: 1.5rem;
+    text-align: center;
+    opacity: 0.85;
+    letter-spacing: 5px;
+    margin: 20px 0;
+    position: relative;
+}
+
+/* Simple Divider Animation */
+.divider::before,
+.divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, #58a6ff, #bc6ff1);
+}
+
+.divider::before {
+    left: -120px;
+}
+
+.divider::after {
+    right: -120px;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 { 
+        font-size: 2.5rem; 
+    }
+    .card {
+        padding: 30px 20px;
+    }
+    input, button {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+    .container {
+        gap: 30px;
+    }
+    .divider::before,
+    .divider::after {
+        width: 50px;
+    }
+}
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 12px; /* Scrollbar width */
+}
+
+/* Scrollbar Track */
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1); /* Transparent track */
+    border-radius: 10px;
+}
+
+/* Scrollbar Thumb (Draggable part) */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #58a6ff, #bc6ff1); /* Gradient color */
+    border-radius: 10px; /* Rounded edges */
+    transition: background 0.3s ease;
+}
+
+/* Hover Effect on Thumb */
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #4586e0, #a35cf1); /* Darker gradient on hover */
+}
+
+/* Scrollbar Corner (when both vertical and horizontal scrollbars are present) */
+::-webkit-scrollbar-corner {
+    background: transparent; /* Ensures a seamless look */
+}

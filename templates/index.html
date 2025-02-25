@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>🔐 Image Steganography - Hide & Reveal Secrets</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <h1>
+            <span class="emoji">🔏</span> Image Steganography</h1>
+        
+        <p>Securely hide and reveal secrets in images.</p>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Encrypt Section -->
+        <section id="encrypt-section" class="card">
+            <h2>🛡️ Hide a Secret Message</h2>
+            <form id="encryptForm" method="POST" enctype="multipart/form-data">
+                <label for="imageInput">📷 Upload an Image:</label>
+                <input id="imageInput" type="file" name="image" accept="image/*" required><br>
+
+                <label for="messageInput">💬 Secret Message:</label>
+                <input id="messageInput" type="text" name="message" placeholder="Type your secret message here" required><br>
+
+                <label for="passwordInput">🔑 Set a Passcode:</label>
+                <input id="passwordInput" type="password" name="password" placeholder="Enter a passcode (min 4 chars)" minlength="4" required><br>
+
+                <button type="submit" name="action" value="encrypt" id="encryptBtn">🚀 Encrypt Message</button>
+            </form>
+
+            <!-- Encryption Result -->
+            {% if action == "encrypt" %}
+                {% if message %}
+                <div class="result success">
+                    <h3>✅ Message Encrypted Successfully!</h3>
+                    {% if encrypted_image %}
+                    <p>⬇️ <a class="download-link" href="{{ url_for('uploaded_file', filename=encrypted_image) }}" download>Download Encrypted Image</a></p>
+                    {% endif %}
+                </div>
+                {% elif error_message %}
+                <div class="result error">
+                    <h3>❌ Encryption Failed</h3>
+                    <p>{{ error_message }}</p>
+                </div>
+                {% endif %}
+            {% endif %}
+        </section>
+
+        <!-- Divider -->
+        <div class="divider">🛡️ Hide → 🔒 Secure → 🔍 Reveal</div>
+
+        <!-- Decrypt Section -->
+        <section id="decrypt-section" class="card">
+            <h2>🔍 Reveal a Hidden Message</h2>
+            <form id="decryptForm" method="POST" enctype="multipart/form-data">
+                <label for="decryptImage">📥 Upload Encrypted Image:</label>
+                <input id="decryptImage" type="file" name="image" accept="image/*" required><br>
+
+                <label for="decryptPassword">🔒 Enter Passcode:</label>
+                <input id="decryptPassword" type="password" name="password" placeholder="Enter the passcode" required><br>
+
+                <button type="submit" name="action" value="decrypt" id="decryptBtn">🔓 Decrypt Message</button>
+            </form>
+
+            <!-- Decryption Result -->
+            {% if action == "decrypt" %}
+                {% if decrypted_message %}
+                <div class="result success">
+                    <h3>🎉 Hidden Message Revealed:</h3>
+                    <p>"{{ decrypted_message }}"</p>
+                </div>
+                {% elif error_message %}
+                <div class="result error">
+                    <h3>❌ Decryption Failed</h3>
+                    <p>{{ error_message }}</p>
+                </div>
+                {% endif %}
+            {% endif %}
+        </section>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
+
