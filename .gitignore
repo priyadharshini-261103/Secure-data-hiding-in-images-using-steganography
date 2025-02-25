@@ -1,0 +1,19 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Uploads directory
+uploads/
+
+# Environments (if using virtual environments)
+.env/
+venv/
+
+# IDE files (e.g., VSCode, PyCharm)
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
