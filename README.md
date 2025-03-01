@@ -61,3 +61,5 @@ decrypt.py: Contains the logic for decrypting the message from the image.
 templates/: Contains HTML files for rendering the app (e.g., index.html).
 static/: Contains static files like stylesheets and scripts (e.g., styles.css, script.js).
 requirements.txt: Lists the dependencies for the project.
+
+[AICTE PPT Template (1).pptx](https://github.com/user-attachments/files/19037243/AICTE.PPT.Template.1.pptx)
