@@ -1,4 +1,4 @@
-his project provides a web-based application for securely hiding secret messages in images using image steganography. The application uses a password to encrypt and decrypt messages embedded in images. Users can upload images, encrypt them with a secret message, and download the encrypted images. They can also decrypt encrypted images by providing the correct password.
+This project provides a web-based application for securely hiding secret messages in images using image steganography. The application uses a password to encrypt and decrypt messages embedded in images. Users can upload images, encrypt them with a secret message, and download the encrypted images. They can also decrypt encrypted images by providing the correct password.
 
 Features
 Encrypt a message in an image: Users can upload an image and embed a secret message using a passcode for encryption.
